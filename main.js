@@ -10,6 +10,8 @@ function inform(key, val) {
 }
 
 async function main() {
+    let nothrow = core.getInput("nothrow")
+
     try {
         const token = core.getInput("github_token", { required: true })
         const workflow = core.getInput("workflow", { required: true })
@@ -215,7 +217,7 @@ async function main() {
         }
     } catch (error) {
         core.setOutput("error_message", error.message)
-        core.setFailed(error.message)
+        if (!nothrow) core.setFailed(error.message)
     }
 }
 
