@@ -99,7 +99,7 @@ async function main() {
                     if (runNumber && run.run_number != runNumber) {
                         continue
                     }
-                    if (workflowConclusion && (workflowConclusion != run.conclusion && workflowConclusion != run.status)) {
+                    if (workflowConclusion && workflowConclusion !== 'false' && (workflowConclusion != run.conclusion && workflowConclusion != run.status)) {
                         continue
                     }
                     if (checkArtifacts || searchArtifacts) {
