@@ -1,4 +1,4 @@
-name: Download workflow artifact
+name: Download workflow artifact (@qiwi)
 description: Download and extract an artifact associated with given workflow and commit
 author: dawidd6
 branding:
