@@ -1,3 +1,8 @@
+## [2.23.1](https://github.com/qiwi-forks/action-download-artifact/compare/v2.23.0...v2.23.1) (2022-07-15)
+
+### Fixes & improvements
+* fix: fix action.yaml entry point ([c4343a8](https://github.com/qiwi-forks/action-download-artifact/commit/c4343a8f7144c75b5a5def444f4c93a37a30b5c6))
+
 ## [2.23.0](https://github.com/qiwi-forks/action-download-artifact/compare/v2.22.0...v2.23.0) (2022-07-15)
 
 ### Features
