@@ -1,3 +1,8 @@
+## [2.23.0](https://github.com/qiwi-forks/action-download-artifact/compare/v2.22.0...v2.23.0) (2022-07-15)
+
+### Features
+* feat: publish v2 ([758c15f](https://github.com/qiwi-forks/action-download-artifact/commit/758c15fe13439bab409ca02ed49783eef2734bc0))
+
 ## [2.22.0](https://github.com/qiwi-forks/action-download-artifact/compare/v2.21.1...v2.22.0) (2022-07-15)
 
 ### Fixes & improvements
@@ -9,5 +14,3 @@
 * feat: introduce search depth limit ([b62234c](https://github.com/qiwi-forks/action-download-artifact/commit/b62234cad1febfdff7183c4cfb36fbb782860368))
 * feat: let workflowConclusion be optional ([0e8d4fa](https://github.com/qiwi-forks/action-download-artifact/commit/0e8d4fa4f2f50d0a28dd6b694b0e92783ab9c85e))
 * feat: add `nothrow` options ([f3456f9](https://github.com/qiwi-forks/action-download-artifact/commit/f3456f9e0c605faabb132eb7d262929bb42fb2be))
-
-
