@@ -71,6 +71,10 @@ outputs:
     description: The error message, if an error occurs
   dry_run:
     description: Boolean output which is true if the dry run was successful and false otherwise.
+  arfifact_length:
+    description: The length of the artifact(s)
+  artifact_hit:
+    description: Boolean output which is true if the artifact(s) was found and false otherwise.
 runs:
   using: node16
   main: main.js

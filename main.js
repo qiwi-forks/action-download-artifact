@@ -11,6 +11,7 @@ function inform(key, val) {
 
 async function main() {
     let nothrow = core.getInput("nothrow")
+    let artifacts = []
 
     try {
         const token = core.getInput("github_token", { required: true })
@@ -30,6 +31,7 @@ async function main() {
         let searchArtifacts = core.getInput("search_artifacts")
         let searchDepth = core.getInput("search_depth")|0 | Number.POSITIVE_INFINITY
         let dryRun = core.getInput("dry_run")
+        let filtered
 
         const client = github.getOctokit(token)
 
@@ -140,7 +142,7 @@ async function main() {
             throw new Error("no matching workflow run found with any artifacts?")
         }
 
-        let artifacts = await client.paginate(client.rest.actions.listWorkflowRunArtifacts, {
+        artifacts = await client.paginate(client.rest.actions.listWorkflowRunArtifacts, {
             owner: owner,
             repo: repo,
             run_id: runID,
@@ -220,9 +222,13 @@ async function main() {
             adm.extractAllTo(dir, true)
             core.endGroup()
         }
+
     } catch (error) {
         core.setOutput("error_message", error.message)
         if (!nothrow) core.setFailed(error.message)
+    } finally {
+        core.setOutput('artifacts_length', artifacts.length)
+        core.setOutput('artifact_hit', artifacts.length > 0)
     }
 }
 
