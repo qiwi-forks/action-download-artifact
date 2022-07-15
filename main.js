@@ -99,7 +99,7 @@ async function main() {
                     if (runNumber && run.run_number != runNumber) {
                         continue
                     }
-                    if (workflowConclusion && workflowConclusion !== 'false' && (workflowConclusion != run.conclusion && workflowConclusion != run.status)) {
+                    if (workflowConclusion && (workflowConclusion != 'false' && workflowConclusion != run.conclusion && workflowConclusion != run.status)) {
                         continue
                     }
                     if (checkArtifacts || searchArtifacts) {
@@ -109,6 +109,7 @@ async function main() {
                             run_id: run.id,
                         })
                         if (artifacts.data.artifacts.length == 0) {
+                            core.info(`==> No artifacts found for run ${run.id}`)
                             continue
                         }
                         if (searchArtifacts) {
