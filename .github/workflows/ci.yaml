@@ -42,4 +42,5 @@ jobs:
           GH_USER: 'qiwibot'
           GIT_COMMITTER_NAME: 'qiwibot'
           GIT_COMMITTER_EMAIL: 'opensource@qiwi.com'
+          PUSH_MAJOR_TAG: true
         run: npm_config_yes=true npx zx-semrel
