@@ -1,0 +1,45 @@
+name: CI
+on: [push]
+jobs:
+  init:
+    name: init
+    runs-on: ubuntu-20.04
+    outputs:
+      skip: ${{ steps.ci-skip-step.outputs.ci-skip }}
+      skip-not: ${{ steps.ci-skip-step.outputs.ci-skip-not }}
+    steps:
+      - uses: actions/checkout@v3
+      - id: ci-skip-step
+        uses: mstachniuk/ci-skip@v1
+
+  release:
+    name: Release
+    if: ${{ needs.init.outputs.skip == 'false'}}
+    needs: init
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: master
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install deps
+        run: yarn install
+
+      - name: Build
+        run: yarn build
+
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GH_USER: 'qiwibot'
+          GIT_COMMITTER_NAME: 'qiwibot'
+          GIT_COMMITTER_EMAIL: 'opensource@qiwi.com'
+        run: npm_config_yes=true npx zx-semrel
