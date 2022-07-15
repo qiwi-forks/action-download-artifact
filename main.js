@@ -28,6 +28,7 @@ async function main() {
         let runNumber = core.getInput("run_number")
         let checkArtifacts = core.getInput("check_artifacts")
         let searchArtifacts = core.getInput("search_artifacts")
+        let searchDepth = core.getInput("search_depth")|0 | Number.POSITIVE_INFINITY
         let dryRun = core.getInput("dry_run")
 
         const client = github.getOctokit(token)
@@ -93,6 +94,9 @@ async function main() {
             }
             )) {
                 for (const run of runs.data) {
+                    if (searchDepth-- === 0) {
+                        continue
+                    }
                     if (commit && run.head_sha != commit) {
                         continue
                     }
