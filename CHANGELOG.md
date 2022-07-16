@@ -1,3 +1,8 @@
+## [2.23.3](https://github.com/qiwi-forks/action-download-artifact/compare/v2.23.2...v2.23.3) (2022-07-16)
+
+### Fixes & improvements
+* fix: fix search br conditions ([def20dd](https://github.com/qiwi-forks/action-download-artifact/commit/def20dd3efcf38f551b75ab8db2141c83cf56a5b))
+
 ## [2.23.2](https://github.com/qiwi-forks/action-download-artifact/compare/v2.23.1...v2.23.2) (2022-07-16)
 
 ### Fixes & improvements
