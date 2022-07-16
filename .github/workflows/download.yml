@@ -24,6 +24,11 @@ jobs:
           workflow: upload.yml
           name: artifact
           path: artifact
+      - name: Debug
+        run: |
+          echo $GITHUB_SHA
+          ls -l
+          cat artifact/sha
       - name: Test
         run: cat artifact/sha | grep $GITHUB_SHA
   download-branch:
