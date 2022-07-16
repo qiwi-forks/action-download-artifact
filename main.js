@@ -96,21 +96,17 @@ async function main() {
             }
             )) {
                 for (const run of runs.data) {
-                    core.info(`==> iter: ${run.id}`)
-                    if (searchDepth-- === 0) {
-                        core.info(`==> dbg#1`)
-                        continue
+                    if (searchDepth-- <= 0) {
+                        break
                     }
+
                     if (commit && run.head_sha != commit) {
-                        core.info(`==> dbg#2`)
                         continue
                     }
                     if (runNumber && run.run_number != runNumber) {
-                        core.info(`==> dbg#3`)
                         continue
                     }
                     if (workflowConclusion && !['false', run.conclusion, run.status].includes(workflowConclusion)) {
-                        core.info(`==> dbg#4`)
                         continue
                     }
                     if (checkArtifacts || searchArtifacts) {
@@ -121,7 +117,6 @@ async function main() {
                         })
                         if (artifacts.data.artifacts.length == 0) {
                             core.info(`==> No artifacts found for run ${run.id}`)
-                            core.info(`==> dbg#5`)
                             continue
                         }
                         if (searchArtifacts) {
@@ -129,7 +124,6 @@ async function main() {
                                 return artifact.name == name
                             })
                             if (!artifact) {
-                                core.info(`==> dbg#6`)
                                 continue
                             }
                         }
@@ -139,7 +133,7 @@ async function main() {
                     core.info(`==> (found) Run date: ${run.created_at}`)
                     break
                 }
-                if (runID) {
+                if (runID || searchDepth <= 0) {
                     break
                 }
             }
