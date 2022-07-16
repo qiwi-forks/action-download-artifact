@@ -29,7 +29,7 @@ async function main() {
         let runNumber = core.getInput("run_number")
         let checkArtifacts = core.getInput("check_artifacts")
         let searchArtifacts = core.getInput("search_artifacts")
-        let searchDepth = core.getInput("search_depth")|0 | Number.POSITIVE_INFINITY
+        let searchDepth = core.getInput("search_depth")|0 || Number.POSITIVE_INFINITY
         let dryRun = core.getInput("dry_run")
         let filtered
 
@@ -96,21 +96,16 @@ async function main() {
             }
             )) {
                 for (const run of runs.data) {
-                    core.info(`==> iter: ${run.id}`)
                     if (searchDepth-- === 0) {
-                        core.info(`==> dbg#1`)
                         continue
                     }
                     if (commit && run.head_sha != commit) {
-                        core.info(`==> dbg#2`)
                         continue
                     }
                     if (runNumber && run.run_number != runNumber) {
-                        core.info(`==> dbg#3`)
                         continue
                     }
                     if (workflowConclusion && !['false', run.conclusion, run.status].includes(workflowConclusion)) {
-                        core.info(`==> dbg#4`)
                         continue
                     }
                     if (checkArtifacts || searchArtifacts) {
@@ -121,7 +116,6 @@ async function main() {
                         })
                         if (artifacts.data.artifacts.length == 0) {
                             core.info(`==> No artifacts found for run ${run.id}`)
-                            core.info(`==> dbg#5`)
                             continue
                         }
                         if (searchArtifacts) {
@@ -129,7 +123,6 @@ async function main() {
                                 return artifact.name == name
                             })
                             if (!artifact) {
-                                core.info(`==> dbg#6`)
                                 continue
                             }
                         }
