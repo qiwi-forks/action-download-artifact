@@ -96,6 +96,7 @@ async function main() {
             }
             )) {
                 for (const run of runs.data) {
+                    core.info(`==> iter: ${run.id}`)
                     if (searchDepth-- === 0) {
                         continue
                     }
