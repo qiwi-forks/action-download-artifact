@@ -1,3 +1,8 @@
+## [2.23.2](https://github.com/qiwi-forks/action-download-artifact/compare/v2.23.1...v2.23.2) (2022-07-16)
+
+### Fixes & improvements
+* fix: fix search_depth fallback value ([effa2bb](https://github.com/qiwi-forks/action-download-artifact/commit/effa2bb36d345a829b706193c12e99eef57330a0))
+
 ## [2.23.1](https://github.com/qiwi-forks/action-download-artifact/compare/v2.23.0...v2.23.1) (2022-07-15)
 
 ### Fixes & improvements
