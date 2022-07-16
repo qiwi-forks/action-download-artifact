@@ -1,3 +1,8 @@
+## [2.23.4](https://github.com/qiwi-forks/action-download-artifact/compare/v2.23.3...v2.23.4) (2022-07-16)
+
+### Fixes & improvements
+* perf: up deps ([1a3d85f](https://github.com/qiwi-forks/action-download-artifact/commit/1a3d85f07d088780199eb84fa46e5deaa432ec21))
+
 ## [2.23.3](https://github.com/qiwi-forks/action-download-artifact/compare/v2.23.2...v2.23.3) (2022-07-16)
 
 ### Fixes & improvements
