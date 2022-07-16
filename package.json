@@ -1,6 +1,6 @@
 {
   "name": "action-download-artifact",
-  "version": "2.23.4",
+  "version": "2.23.5",
   "private": true,
   "main": "index.js",
   "scripts": {

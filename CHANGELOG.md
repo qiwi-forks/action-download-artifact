@@ -1,3 +1,8 @@
+## [2.23.5](https://github.com/qiwi-forks/action-download-artifact/compare/v2.23.4...v2.23.5) (2022-07-16)
+
+### Fixes & improvements
+* perf: improve err logging ([8a464de](https://github.com/qiwi-forks/action-download-artifact/commit/8a464de0f1110090e96d508cc98f62c115f31735))
+
 ## [2.23.4](https://github.com/qiwi-forks/action-download-artifact/compare/v2.23.3...v2.23.4) (2022-07-16)
 
 ### Fixes & improvements
