@@ -226,7 +226,11 @@ async function main() {
 
     } catch (error) {
         core.setOutput("error_message", error.message)
-        if (!nothrow) core.setFailed(error.message)
+        if (nothrow) {
+            core.info(`==> Error (nothrow): ${error.message}`)
+        } else {
+            core.setFailed(error.message)
+        }
     } finally {
         core.setOutput('artifacts_length', artifacts.length)
         core.setOutput('artifact_hit', artifacts.length > 0)
