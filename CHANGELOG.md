@@ -1,3 +1,8 @@
+## [2.23.7](https://github.com/qiwi-forks/action-download-artifact/compare/v2.23.6...v2.23.7) (2025-04-16)
+
+### Fixes & improvements
+* fix: debug ([cf62570](https://github.com/qiwi-forks/action-download-artifact/commit/cf6257028dc423e2e3bd27e4b02a6d449db8e82e))
+
 ## [2.23.6](https://github.com/qiwi-forks/action-download-artifact/compare/v2.23.5...v2.23.6) (2025-04-16)
 
 ### Fixes & improvements
