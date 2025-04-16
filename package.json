@@ -4,7 +4,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "build": "ncc build main.js -o ./ -C -m"
+    "build": "ncc build main.js -o ./ -C"
   },
   "dependencies": {
     "@actions/core": "^1.11.1",
