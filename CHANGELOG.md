@@ -1,3 +1,8 @@
+## [2.23.8](https://github.com/qiwi-forks/action-download-artifact/compare/v2.23.7...v2.23.8) (2025-04-16)
+
+### Fixes & improvements
+* fix: fix filesize invoke ([53a6bb2](https://github.com/qiwi-forks/action-download-artifact/commit/53a6bb271d4275eb948f8b28d33ec21ceb0c5839))
+
 ## [2.23.7](https://github.com/qiwi-forks/action-download-artifact/compare/v2.23.6...v2.23.7) (2025-04-16)
 
 ### Fixes & improvements
