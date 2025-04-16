@@ -76,5 +76,5 @@ outputs:
   artifact_hit:
     description: Boolean output which is true if the artifact(s) was found and false otherwise.
 runs:
-  using: node16
+  using: node20
   main: index.js
