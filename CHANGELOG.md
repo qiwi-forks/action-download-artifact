@@ -1,3 +1,10 @@
+## [2.23.6](https://github.com/qiwi-forks/action-download-artifact/compare/v2.23.5...v2.23.6) (2025-04-16)
+
+### Fixes & improvements
+* fix: use ubuntu-latest ([9dbef64](https://github.com/qiwi-forks/action-download-artifact/commit/9dbef64f5e12b77d750d1bc1a224806626f3a088))
+* fix: use gh actions v4 ([366a1a3](https://github.com/qiwi-forks/action-download-artifact/commit/366a1a3b1b41f50d2020f1aaa48cdf891892595f))
+* fix: update deps, use nodejs v20 ([e5e03ea](https://github.com/qiwi-forks/action-download-artifact/commit/e5e03ea1b1b5f6bd03a5d560fdff1eca31990ad4))
+
 ## [2.23.5](https://github.com/qiwi-forks/action-download-artifact/compare/v2.23.4...v2.23.5) (2022-07-16)
 
 ### Fixes & improvements
