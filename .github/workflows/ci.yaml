@@ -4,33 +4,21 @@ on:
     branches:
     - master
 jobs:
-  init:
-    name: init
-    runs-on: ubuntu-20.04
-    outputs:
-      skip: ${{ steps.ci-skip-step.outputs.ci-skip }}
-      skip-not: ${{ steps.ci-skip-step.outputs.ci-skip-not }}
-    steps:
-      - uses: actions/checkout@v3
-      - id: ci-skip-step
-        uses: mstachniuk/ci-skip@v1
-
   release:
     name: Release
-    if: ${{ needs.init.outputs.skip == 'false'}}
-    needs: init
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           ref: master
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
+          cache: 'yarn'
 
       - name: Install deps
         run: yarn install
@@ -40,10 +28,12 @@ jobs:
 
       - name: Release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GH_USER: 'qiwibot'
-          GIT_COMMITTER_NAME: 'qiwibot'
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GIT_AUTHOR_EMAIL: 'opensource@qiwi.com'
           GIT_COMMITTER_EMAIL: 'opensource@qiwi.com'
+          GIT_AUTHOR_NAME: 'QIWI Bot'
+          GIT_COMMITTER_NAME: 'QIWI Bot'
           PUSH_MAJOR_TAG: true
         run: npm_config_yes=true npx zx-semrel
